@@ -19,8 +19,8 @@ namespace Terabaitas
 
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=TerabaitasDB;Integrated Security=True");
-                //options.UseInMemoryDatabase("_");
+                //options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=TerabaitasDB;Integrated Security=True");
+                options.UseInMemoryDatabase("_");
             });
 
             services.AddIdentity<User, IdentityRole>(options =>
