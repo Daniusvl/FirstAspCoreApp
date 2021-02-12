@@ -1,0 +1,30 @@
+﻿<h1>Manager Registration</h1>
+
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.ValidationSummary(false)
+
+    <p>Vartotojo vardas</p>
+    <input type="text" name="manager.UserName" />
+
+    <p>Vardas</p>
+    <input type="text" name="manager.FirstName" />
+
+    <p>Pavardė</p>
+    <input type="text" name="manager.LastName" />
+
+    <p>Slaptažodis</p>
+    <input type="text" name="manager.Password" />
+
+    <p>Pakartotik slaptažodį</p>
+    <input type="text" name="manager.ConfirmPassword" />
+
+    <p>Raktažodis</p>
+    <input type="text" name="manager.SecretKey" />
+
+    <br />
+    <br />
+
+    <input type="submit" value="Registruotis" />
+}

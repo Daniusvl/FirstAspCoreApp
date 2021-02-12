@@ -1,0 +1,31 @@
+﻿@model (User, bool)
+
+@if (Model.Item2)
+{
+    @Html.ActionLink("Užsakymų sarašas", "Index", "Manager");
+}
+
+<h1>redaguoti adresą</h1>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+
+    @Html.ValidationSummary(false)
+
+    <p>Miestas</p>
+    <input name="living_place.City" type="text" value="@Model.Item1.City" />
+
+    <p>Adresas</p>
+    <input name="living_place.Address" type="text" value="@Model.Item1.Address" />
+
+    <p>Pašto kodas</p>
+    <input name="living_place.ZipCode" type="text" value="@Model.Item1.ZipCode" />
+
+    <br />
+    <br />
+
+    <input type="submit" value="Atnaujinti adresą">
+
+}
+
+@Html.ActionLink("Pakeisti slaptažodį", "ChangePassword", "User")

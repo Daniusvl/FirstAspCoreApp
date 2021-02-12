@@ -1,0 +1,32 @@
+﻿@model ShopItem
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.ValidationSummary(false);
+    <b>Pavadinimas:</b>
+    <input type="text" name="product.Name" value="@Model.Name"/>
+    <br />
+    <b>Aprašymas:</b> 
+    <textarea name="product.Description">@Model.Description</textarea>
+    <br />
+    <b>Tipas:</b> 
+    <select name="product.Type">
+        <option value="@Model.Type">@Model.Type</option>
+        <option value="Nešiojamieji kompiuteriai">Nešiojamieji kompiuteriai</option>
+        <option value="Staliniai kompiuteriai">Staliniai kompiuteriai</option>
+        <option value="Planšetiniai kompiuteriai">Planšetiniai kompiuteriai</option>
+        <option value="Telefonai">Telefonai</option>
+        <option value="Kompiuterių komponentai">Kompiuterių komponentai</option>
+        <option value="Monitoriai & Televizoriai">Monitoriai & Televizoriai</option>
+        <option value="Programinė įranga">Programinė įranga</option>
+        <option value="Žaidimų įranga">Žaidimų įranga</option>
+    </select>
+    <br />
+    <b>Kaina:</b>
+    <input type="text" name="product.Price" value="@Model.Price" />
+    <br />
+    <b>Kiekis:</b>
+    <input type="text" name="product.Quantity" value="@Model.Quantity"/>
+    <br />
+    <input type="submit" value="Atnaujinti" />
+}

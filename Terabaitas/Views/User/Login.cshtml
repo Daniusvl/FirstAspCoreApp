@@ -1,0 +1,23 @@
+﻿@model UserLoginViewModel
+
+<h1>Login</h1>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+
+    @Html.ValidationSummary(false)
+
+    <p>Vartotojo vardas</p>
+    @Html.EditorFor(m => m.UserName)
+
+    <p>Slaptažodis</p>
+    @Html.EditorFor(m => m.Password)
+
+    <br />
+    <br />
+
+    <input type="submit" value="Prisijungti" />
+
+}
+
+<p>Neturite paskyros? @Html.ActionLink("Užsiregistruokite", "Register", "User")!</p>

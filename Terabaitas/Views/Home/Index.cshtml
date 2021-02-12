@@ -1,0 +1,28 @@
+﻿@model (List<ShopItem>, bool)
+
+@if (Model.Item2)
+{
+    @Html.ActionLink("Pridėti naują prekę", "AddProduct", "Manager");
+}
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <label for="product_type">Pasirinkite:</label>
+    <select name="product_type" id="product_type" onchange="this.form.submit();">
+        <option value="Nauji" selected>Nauji</option>
+        <option value="Nešiojamieji kompiuteriai">Nešiojamieji kompiuteriai</option>
+        <option value="Staliniai kompiuteriai">Staliniai kompiuteriai</option>
+        <option value="Planšetiniai kompiuteriai">Planšetiniai kompiuteriai</option>
+        <option value="Telefonai">Telefonai</option>
+        <option value="Kompiuterių komponentai">Kompiuterių komponentai</option>
+        <option value="Monitoriai & Televizoriai">Monitoriai & Televizoriai</option>
+        <option value="Programinė įranga">Programinė įranga</option>
+        <option value="Žaidimų įranga">Žaidimų įranga</option>
+    </select>
+}
+
+@foreach (var item in Model.Item1)
+{
+    <h5>@item.Name</h5>
+    <div>@Html.ActionLink("Atidaryti", "Product", new { id = item.Id })</div>
+}

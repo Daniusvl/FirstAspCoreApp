@@ -1,0 +1,27 @@
+﻿@model (List<Order>, OrderHelper)
+
+<h1>Index</h1>
+
+<table cellpadding="20">
+    <tr>
+        <th>Vardas</th>
+        <th>Pavardė</th>
+        <th>Užsakymo data</th>
+    </tr>
+
+    @if(Model.Item1 != null)
+    {
+        @foreach (var item in Model.Item1)
+        {
+            var user = await Model.Item2.GetUser(item.Id);
+
+            <tr>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@item.DateOrdered</td>
+                <td>@Html.ActionLink("Atidaryti", "Order", "Manager", new { order_id = item.Id })</td>
+            </tr>
+        }
+    }
+
+</table>

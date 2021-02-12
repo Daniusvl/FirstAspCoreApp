@@ -1,0 +1,48 @@
+﻿@model (Order, OrderHelper)
+
+<h1>Užsakymas Nr. @Model.Item1.Id</h1>
+
+<p><b>Užsakymo data: </b>@Model.Item1.DateOrdered</p>
+<p>
+    <b>Užsakytojo informacija:</b><br />
+    @{
+        var user = await Model.Item2.GetUser(Model.Item1.Id);
+    }
+    <b>Vardas: </b> @user.FirstName <br />
+    <b>Pavardė: </b> @user.LastName <br />
+    <b>Miestas: </b> @user.City <br />
+    <b>Adresas: </b> @user.Address <br />
+    <b>Pašto kodas: </b> @user.ZipCode <br />
+</p>
+<p>
+    <b>Užsakyti produktai:</b><br />
+    @{
+        var products = Model.Item2.GetProducts(Model.Item1.Id);
+        decimal total_price = 0;
+    }
+    <table cellpadding="15">
+        <tr>
+            <th>Produkto pavadinimas</th>
+            <th>Produkto kaina</th>
+            <th>Kiekis</th>
+        </tr>
+        @foreach (var item in products)
+        {
+            <tr>
+                <td>@Html.ActionLink(item.Item1.Name, "Product", "Home", new { id = item.Item1.Id })</td>
+                <td>@item.Item1.Price</td>
+                <td>@item.Item2</td>
+            </tr>
+            total_price += (item.Item1.Price * item.Item2);
+        }
+    </table>
+    <b>Bendra kaina: </b> @total_price
+</p>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <input type="submit" name="btn" value="pristatyti" />
+    <input type="submit" name="btn" value="atšaukti" />
+
+    @Html.ValidationSummary(false)
+}

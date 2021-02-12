@@ -1,0 +1,52 @@
+﻿@model List<(ShopItem, int)>
+
+<h1>Cart</h1>
+
+@if (Model != null)
+{
+    <table cellspacing="50">
+        <tr>
+            <th>Prdukto pavadinimas</th>
+            <th>Prdukto kaina</th>
+            <th>Prdukto kiekis</th>
+            <th>Produkto kaina už visus kiekius</th>
+        </tr>
+        @{ decimal total_price = 0;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Item1.Name</td>
+                <td>@item.Item1.Price</td>
+                <td>
+                    @using (Html.BeginForm(FormMethod.Post))
+                    {
+                        <input name="id" hidden value="@item.Item1.Id"/>
+                        <input type="submit" name="add_remove" value="-"/>
+                        @item.Item2
+                        <input type="submit" name="add_remove" value="+"/>
+                    }
+                </td>
+                <td>@{
+                    decimal p = item.Item1.Price * item.Item2;
+                    total_price += p;
+                    @p
+                    }
+                </td>
+            </tr>
+        }
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><b>Išviso:</b> @total_price</td>
+        </tr>
+    </table>
+    @if (Model.Count > 0)
+    {
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+            <input type="submit" value="Pirkti" />
+        }
+    }
+}

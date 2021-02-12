@@ -1,0 +1,26 @@
+﻿@model (ShopItem, bool)
+
+
+<h2>@Model.Item1.Name</h2>
+<p><b>Aprašymas:</b><br />@Model.Item1.Description</p>
+<p><b>Liko:</b> @Model.Item1.Quantity vienetai(ų)</p>
+<p><b>Kaina:</b> @Model.Item1.Price €</p>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    if (Model.Item1.Quantity > 0)
+    {
+        <input type="submit" value="Į krepšelį" />
+    }
+    else
+    {
+        <input type="submit" value="Į krepšelį" disabled/>
+        <p>Šiuo metu prekės nėra</p>
+    }
+}
+
+@if (Model.Item2)
+{
+    @Html.ActionLink("Redaguoti", "EditProduct", "Manager", new { id = Model.Item1.Id })<br />
+    @Html.ActionLink("Ištrynti", "RemoveProduct", "Manager", new { id = Model.Item1.Id })
+}

@@ -1,0 +1,19 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Internetinė parduotuvė</title>
+</head>
+<body>
+    <h1>@Html.ActionLink("Terabaitas", "Index", "Home")</h1>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p style="text-align:right">@Html.ActionLink("Krepšelis", "Index", "Cart"), @Html.ActionLink("jūsų profilis", "Index", "User")</p>
+        <p style="text-align:right">@Html.ActionLink("Atsijungti", "Logout", "User")</p>
+    }
+    else
+    {
+        <p style="text-align:right">@Html.ActionLink("Prisijungti", "Login", "User")</p>
+    }
+
+        @RenderBody()
+    </body>
+</html>

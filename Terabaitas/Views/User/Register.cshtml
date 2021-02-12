@@ -1,0 +1,42 @@
+﻿@model UserRegisterViewModel
+
+<h1>Register</h1>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.ValidationSummary(false)
+
+    <p>Vartotojo vardas</p>
+    @Html.EditorFor(m => m.UserName)
+
+    <p>Vardas</p>
+    @Html.EditorFor(m => m.FirstName)
+
+    <p>Pavardė</p>
+    @Html.EditorFor(m => m.LastName)
+
+    <p>Slaptažodis</p>
+    @Html.EditorFor(m => m.Password)
+
+    <p>Pakartotik slaptažodį</p>
+    @Html.EditorFor(m => m.ConfirmPassword)
+
+    <p>Tel. Numeris</p>
+    @Html.EditorFor(m => m.PhoneNumber)
+
+    <br />
+
+    <p>Miestas</p>
+    @Html.EditorFor(m => m.City)
+
+    <p>Adresas</p>
+    @Html.EditorFor(m => m.Address)
+
+    <p>Pašto kodas</p>
+    @Html.EditorFor(m => m.ZipCode)
+
+    <br />
+    <br />
+
+    <input type="submit" value="Registruotis" />
+}
