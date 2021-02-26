@@ -35,13 +35,13 @@ using Terabaitas.Controllers;
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\User\source\repos\Shop\Terabaitas\Views\_ViewImports.cshtml"
-using Terabaitas.Core;
+using Terabaitas.Core.Services.Abstract;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c891c217fb676704266a86da5c9150c0b8102c57", @"/Views/Shared/_Layout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"23bda1074c776207598365aaef2ceb73537a5523", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"695d143dd7ccc555e0732e0fe9c503b1cc2ebb12", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__Layout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #line hidden
@@ -70,7 +70,7 @@ using Terabaitas.Core;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c891c217fb676704266a86da5c9150c0b8102c573605", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c891c217fb676704266a86da5c9150c0b8102c573623", async() => {
                 WriteLiteral("\r\n    <title>Internetinė parduotuvė</title>\r\n");
             }
             );
@@ -84,7 +84,7 @@ using Terabaitas.Core;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c891c217fb676704266a86da5c9150c0b8102c574616", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c891c217fb676704266a86da5c9150c0b8102c574634", async() => {
                 WriteLiteral("\r\n    <h1>");
 #nullable restore
 #line 6 "C:\Users\User\source\repos\Shop\Terabaitas\Views\Shared\_Layout.cshtml"

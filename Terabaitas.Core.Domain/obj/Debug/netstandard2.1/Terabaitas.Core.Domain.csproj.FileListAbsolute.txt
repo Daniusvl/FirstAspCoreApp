@@ -1,0 +1,9 @@
+C:\Users\User\source\repos\Shop\Terabaitas.Core.Domain\bin\Debug\netstandard2.1\Terabaitas.Core.Domain.deps.json
+C:\Users\User\source\repos\Shop\Terabaitas.Core.Domain\bin\Debug\netstandard2.1\Terabaitas.Core.Domain.dll
+C:\Users\User\source\repos\Shop\Terabaitas.Core.Domain\bin\Debug\netstandard2.1\Terabaitas.Core.Domain.pdb
+C:\Users\User\source\repos\Shop\Terabaitas.Core.Domain\obj\Debug\netstandard2.1\Terabaitas.Core.Domain.csprojAssemblyReference.cache
+C:\Users\User\source\repos\Shop\Terabaitas.Core.Domain\obj\Debug\netstandard2.1\Terabaitas.Core.Domain.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\Shop\Terabaitas.Core.Domain\obj\Debug\netstandard2.1\Terabaitas.Core.Domain.AssemblyInfo.cs
+C:\Users\User\source\repos\Shop\Terabaitas.Core.Domain\obj\Debug\netstandard2.1\Terabaitas.Core.Domain.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Shop\Terabaitas.Core.Domain\obj\Debug\netstandard2.1\Terabaitas.Core.Domain.dll
+C:\Users\User\source\repos\Shop\Terabaitas.Core.Domain\obj\Debug\netstandard2.1\Terabaitas.Core.Domain.pdb

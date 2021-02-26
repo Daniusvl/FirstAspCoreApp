@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Terabaitas.Core.Domain\Terabaitas.Core.Domain.csproj" />
+    <ProjectReference Include="..\Terabaitas.Data\Terabaitas.Data.csproj" />
+    <ProjectReference Include="..\Terabaitas.Models\Terabaitas.UI.Models.csproj" />
+  </ItemGroup>
+
+</Project>

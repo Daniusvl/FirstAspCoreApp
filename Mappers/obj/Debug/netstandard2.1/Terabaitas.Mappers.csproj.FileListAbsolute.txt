@@ -1,0 +1,4 @@
+C:\Users\User\source\repos\Shop\Mappers\obj\Debug\netstandard2.1\Terabaitas.Mappers.csprojAssemblyReference.cache
+C:\Users\User\source\repos\Shop\Mappers\obj\Debug\netstandard2.1\Terabaitas.Mappers.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\Shop\Mappers\obj\Debug\netstandard2.1\Terabaitas.Mappers.AssemblyInfo.cs
+C:\Users\User\source\repos\Shop\Mappers\obj\Debug\netstandard2.1\Terabaitas.Mappers.csproj.CoreCompileInputs.cache

@@ -3,42 +3,52 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Terabaitas.Core;
+using Terabaitas.Core.Services.Abstract;
+using Terabaitas.Mappers;
 using Terabaitas.Models;
 
 namespace Terabaitas.Controllers
 {
     public class HomeController : Controller
     {
-        private IDbAccess<ShopItem> shop_item_manager;
-        private Cart cart;
+        private readonly IShopItemService shopItemService;
+        private readonly ICartHelper cartHelper;
+        private readonly IRoleService roleService;
+        private readonly IUserService userService;
 
-        private RoleManager role_manager;
-        private IAccountManager<User> acc_manager;
-
-        public HomeController(IDbAccess<ShopItem> iManager, RoleManager rManager, Cart c, IAccountManager<User> aManager)
+        public HomeController(IShopItemService shop_item_service, ICartHelper cart_helper, IRoleService role_service, IUserService user_service)
         {
-            shop_item_manager = iManager;
-            cart = c;
-            role_manager = rManager;
-            acc_manager = aManager;
+            shopItemService = shop_item_service;
+            cartHelper = cart_helper;
+            roleService = role_service;
+            userService = user_service;
         }
 
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            List<ShopItem> items = shop_item_manager.GetAll();
+            List<ShopItemModel> items = new List<ShopItemModel>();
+            var domains = shopItemService.GetAll();
+            foreach (var item in domains)
+            {
+                items.Add(item.ToModel());
+            }
 
             if (items.Count > 20)
                 items.RemoveRange(0, items.Count - 20);
 
-            return View((items, await acc_manager.IsManager(User)));
+            return View((items, await userService.IsManager(User)));
         }
 
         [HttpPost]
         public async Task<IActionResult> Index(string product_type)
         {
-            List<ShopItem> items = shop_item_manager.GetAll();
+            List<ShopItemModel> items = new List<ShopItemModel>();
+            var domains = shopItemService.GetAll();
+            foreach (var item in domains)
+            {
+                items.Add(item.ToModel());
+            }
 
             if (product_type == "Nauji")
             {
@@ -50,7 +60,7 @@ namespace Terabaitas.Controllers
                 items = items.Where(item => item.Type == product_type).ToList();
             }
 
-            return View((items, await acc_manager.IsManager(User)));
+            return View((items, await userService.IsManager(User)));
         }
 
         [HttpGet]
@@ -60,12 +70,12 @@ namespace Terabaitas.Controllers
             if (id is null || id < 0)
                 return RedirectToAction("Index");
 
-            ShopItem item = shop_item_manager.Get((int)id);
+            ShopItemModel item = shopItemService.Get((int)id).ToModel();
 
             if(item is null)
                 return RedirectToAction("Index");
 
-            return View((item, await acc_manager.IsManager(User)));
+            return View((item, await userService.IsManager(User)));
         }
 
         [HttpPost]
@@ -78,21 +88,21 @@ namespace Terabaitas.Controllers
             if (id is null || id < 0)
                 return RedirectToAction("Index");
 
-            ShopItem item = shop_item_manager.Get((int)id);
+            ShopItemModel item = shopItemService.Get((int)id).ToModel();
 
             if (item is null)
                 return RedirectToAction("Index");
 
-            cart.AddToCart(HttpContext.Session, item);
+            cartHelper.AddToCart(HttpContext.Session, item.ToDomain());
 
-            return View((item, await acc_manager.IsManager(User)));
+            return View((item, await userService.IsManager(User)));
         }
 
 
         public IActionResult InitiateDb()
         {
-            role_manager.Add("User");
-            role_manager.Add("Manager");
+            roleService.Add("User");
+            roleService.Add("Manager");
 
             return RedirectToAction("Index");
         }

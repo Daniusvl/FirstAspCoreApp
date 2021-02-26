@@ -10,12 +10,12 @@ namespace Terabaitas.Core
     public class Cart
     {
 
-        public void FixNull(ISession session, ref List<(ShopItem, int)> cart)
+        public void FixNull(ISession session, ref List<(ShopItemEntity, int)> cart)
         {
             if (cart is null)
             {
-                cart = new List<(ShopItem, int)>();
-                SetCart(session, new List<(ShopItem, int)>());
+                cart = new List<(ShopItemEntity, int)>();
+                SetCart(session, new List<(ShopItemEntity, int)>());
             }
         }
 
@@ -24,21 +24,21 @@ namespace Terabaitas.Core
             return session.GetString("Cart");
         }
 
-        public List<(ShopItem, int)> GetCart(ISession session)
+        public List<(ShopItemEntity, int)> GetCart(ISession session)
         {
-            List<(ShopItem, int)> cart = null;
+            List<(ShopItemEntity, int)> cart = null;
 
             string json = GetCartStr(session);
 
             if (json != null && json != string.Empty)
-                cart = JsonConvert.DeserializeObject<List<(ShopItem, int)>>(json);
+                cart = JsonConvert.DeserializeObject<List<(ShopItemEntity, int)>>(json);
 
             FixNull(session, ref cart);
 
             return cart;
         }
 
-        public void SetCart(ISession session, List<(ShopItem, int)> cart)
+        public void SetCart(ISession session, List<(ShopItemEntity, int)> cart)
         {
             if (cart is null)
                 return;
@@ -48,7 +48,7 @@ namespace Terabaitas.Core
             session.SetString("Cart", serialized);
         }
 
-        public int IsInCart(ISession session, ShopItem item)
+        public int IsInCart(ISession session, ShopItemEntity item)
         {
             if (item is null)
                 return -1;
@@ -64,7 +64,7 @@ namespace Terabaitas.Core
             return -1;
         }
 
-        public bool AddToCart(ISession session, ShopItem item)
+        public bool AddToCart(ISession session, ShopItemEntity item)
         {
             if (item is null)
                 return false;
@@ -94,7 +94,7 @@ namespace Terabaitas.Core
             return true;
         }
 
-        public bool RemoveFromCart(ISession session, ShopItem item)
+        public bool RemoveFromCart(ISession session, ShopItemEntity item)
         {
             if (item is null)
                 return false;

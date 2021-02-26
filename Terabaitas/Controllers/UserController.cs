@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Terabaitas.Core;
+using Terabaitas.Core.Services.Abstract;
+using Terabaitas.Mappers;
 using Terabaitas.Models;
 using Terabaitas.ViewModels;
 
@@ -12,35 +13,35 @@ namespace Terabaitas.Controllers
     [Authorize]
     public class UserController : Controller
     {
-        private IAccountManager<User> acc_manager;
+        private IUserService userService;
 
-        public UserController(IAccountManager<User> aManager)
+        public UserController(IUserService user_service)
         {
-            acc_manager = aManager;
+            userService = user_service;
         }
 
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            User user = await acc_manager.GetCurrentUser(User);
-            return View((user, acc_manager.IsManager(User)));
+            UserModel user = (await userService.GetCurrentUser(User)).ToModel();
+            return View((user, await userService.IsManager(User)));
         }
 
         [HttpPost]
         public async Task<IActionResult> Index(UserIndexLivingPlaceViewModel living_place)
         {
-            User user = await acc_manager.GetCurrentUser(User);
+            var user = (await userService.GetCurrentUser(User));
 
             if (!ModelState.IsValid)
-                return View((user, acc_manager.IsManager(User)));
+                return View((user.ToModel(), userService.IsManager(User)));
 
             user.City = living_place.City;
             user.Address = living_place.Address;
             user.ZipCode = living_place.ZipCode;
 
-            acc_manager.Edit(user);
+            await userService.Edit(user);
 
-            return View((user, acc_manager.IsManager(User)));
+            return View((user.ToModel(), await userService.IsManager(User)));
         }
 
         [AllowAnonymous]
@@ -57,12 +58,12 @@ namespace Terabaitas.Controllers
             if(!ModelState.IsValid)
                 return View();
 
-            bool result = await acc_manager.CreateUser(user, user.Password, "User", ModelState);
+            bool result = await userService.CreateUser(((UserModel)user).ToDomain(), user.Password, "User", ModelState);
 
             if (!result)
                 return View();
 
-            result = await acc_manager.Login(user.UserName, user.Password);
+            result = await userService.Login(user.UserName, user.Password);
 
             if (result)
                 return RedirectToAction("Index");
@@ -84,7 +85,7 @@ namespace Terabaitas.Controllers
             if (!ModelState.IsValid)
                 return View();
 
-            bool result = await acc_manager.Login(user.UserName, user.Password);
+            bool result = await userService.Login(user.UserName, user.Password);
 
             if (!result)
             {
@@ -102,7 +103,7 @@ namespace Terabaitas.Controllers
 
         public async Task<IActionResult> Logout()
         {
-            await acc_manager.Logout(User);
+            await userService.Logout(User);
             return RedirectToAction("Index", "Home");
         }
 
@@ -115,7 +116,7 @@ namespace Terabaitas.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangePassword(UserChangePasswordViewModel change_password)
         {
-            var result = await acc_manager.ChangePassword(change_password.OldPassword, change_password.NewPassword, ModelState, User);
+            var result = await userService.ChangePassword(change_password.OldPassword, change_password.NewPassword, ModelState, User);
             
             if (!result)
                 return View();

@@ -44,9 +44,9 @@ namespace Terabaitas.ViewModels
         [StringLength(10, MinimumLength = 4)]
         public string ZipCode { get; set; }
 
-        public static implicit operator User(UserRegisterViewModel user)
+        public static implicit operator UserModel(UserRegisterViewModel user)
         {
-            return new User()
+            return new UserModel()
             {
                 UserName = user.UserName,
                 FirstName = user.FirstName,

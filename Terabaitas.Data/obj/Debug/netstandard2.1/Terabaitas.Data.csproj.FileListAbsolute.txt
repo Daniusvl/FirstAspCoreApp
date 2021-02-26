@@ -7,3 +7,6 @@ C:\Users\User\source\repos\Shop\Terabaitas.Data\obj\Debug\netstandard2.1\Terabai
 C:\Users\User\source\repos\Shop\Terabaitas.Data\obj\Debug\netstandard2.1\Terabaitas.Data.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\Shop\Terabaitas.Data\obj\Debug\netstandard2.1\Terabaitas.Data.dll
 C:\Users\User\source\repos\Shop\Terabaitas.Data\obj\Debug\netstandard2.1\Terabaitas.Data.pdb
+C:\Users\User\source\repos\Shop\Terabaitas.Data\bin\Debug\netstandard2.1\Terabaitas.Core.Domain.dll
+C:\Users\User\source\repos\Shop\Terabaitas.Data\bin\Debug\netstandard2.1\Terabaitas.Core.Domain.pdb
+C:\Users\User\source\repos\Shop\Terabaitas.Data\obj\Debug\netstandard2.1\Terabaitas.Data.csproj.CopyComplete

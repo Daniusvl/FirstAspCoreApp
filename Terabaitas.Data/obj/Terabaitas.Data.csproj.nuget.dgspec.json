@@ -4,14 +4,14 @@
     "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Data\\Terabaitas.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Data\\Terabaitas.Data.csproj": {
+    "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Core.Domain\\Terabaitas.Core.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Data\\Terabaitas.Data.csproj",
-        "projectName": "Terabaitas.Data",
-        "projectPath": "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Data\\Terabaitas.Data.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Core.Domain\\Terabaitas.Core.Domain.csproj",
+        "projectName": "Terabaitas.Core.Domain",
+        "projectPath": "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Core.Domain\\Terabaitas.Core.Domain.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Data\\obj\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Core.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -50,21 +50,89 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.2, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
+              "version": "[5.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Data\\Terabaitas.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Data\\Terabaitas.Data.csproj",
+        "projectName": "Terabaitas.Data",
+        "projectPath": "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Data\\Terabaitas.Data.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Core.Domain\\Terabaitas.Core.Domain.csproj": {
+                "projectPath": "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Core.Domain\\Terabaitas.Core.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.3, )"
             }
           },
           "imports": [

@@ -1,8 +1,8 @@
-﻿@model (Order, OrderHelper)
+﻿@model (OrderModel, IOrderHelper)
 
 <h1>Užsakymas Nr. @Model.Item1.Id</h1>
 
-<p><b>Užsakymo data: </b>@Model.Item1.DateOrdered</p>
+<p><b>Užsakymo data: </b>@Model.Item1.DateCreated.ToString("dd/mm/yyyy")</p>
 <p>
     <b>Užsakytojo informacija:</b><br />
     @{

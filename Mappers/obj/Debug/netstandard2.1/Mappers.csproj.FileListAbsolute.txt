@@ -1,0 +1,16 @@
+C:\Users\User\source\repos\Shop\Mappers\bin\Debug\netstandard2.1\Mappers.deps.json
+C:\Users\User\source\repos\Shop\Mappers\bin\Debug\netstandard2.1\Mappers.dll
+C:\Users\User\source\repos\Shop\Mappers\bin\Debug\netstandard2.1\Mappers.pdb
+C:\Users\User\source\repos\Shop\Mappers\bin\Debug\netstandard2.1\Terabaitas.Core.Domain.dll
+C:\Users\User\source\repos\Shop\Mappers\bin\Debug\netstandard2.1\Terabaitas.Data.dll
+C:\Users\User\source\repos\Shop\Mappers\bin\Debug\netstandard2.1\Terabaitas.UI.Models.dll
+C:\Users\User\source\repos\Shop\Mappers\bin\Debug\netstandard2.1\Terabaitas.Core.Domain.pdb
+C:\Users\User\source\repos\Shop\Mappers\bin\Debug\netstandard2.1\Terabaitas.Data.pdb
+C:\Users\User\source\repos\Shop\Mappers\bin\Debug\netstandard2.1\Terabaitas.UI.Models.pdb
+C:\Users\User\source\repos\Shop\Mappers\obj\Debug\netstandard2.1\Mappers.csprojAssemblyReference.cache
+C:\Users\User\source\repos\Shop\Mappers\obj\Debug\netstandard2.1\Mappers.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\Shop\Mappers\obj\Debug\netstandard2.1\Mappers.AssemblyInfo.cs
+C:\Users\User\source\repos\Shop\Mappers\obj\Debug\netstandard2.1\Mappers.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Shop\Mappers\obj\Debug\netstandard2.1\Mappers.csproj.CopyComplete
+C:\Users\User\source\repos\Shop\Mappers\obj\Debug\netstandard2.1\Mappers.dll
+C:\Users\User\source\repos\Shop\Mappers\obj\Debug\netstandard2.1\Mappers.pdb

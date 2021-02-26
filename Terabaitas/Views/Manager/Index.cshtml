@@ -1,4 +1,4 @@
-﻿@model (List<Order>, OrderHelper)
+﻿@model (List<OrderModel>, IOrderHelper)
 
 <h1>Index</h1>
 
@@ -18,7 +18,7 @@
             <tr>
                 <td>@user.FirstName</td>
                 <td>@user.LastName</td>
-                <td>@item.DateOrdered</td>
+                <td>@item.DateCreated.ToString("dd/mm/yyyy")</td>
                 <td>@Html.ActionLink("Atidaryti", "Order", "Manager", new { order_id = item.Id })</td>
             </tr>
         }

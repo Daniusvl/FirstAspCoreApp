@@ -35,9 +35,9 @@ namespace Terabaitas.ViewModels
         [StringLength(16, MinimumLength = 4)]
         public string SecretKey { get; set; }
 
-        public static implicit operator User(ManagerRegisterViewModel user)
+        public static implicit operator UserModel(ManagerRegisterViewModel user)
         {
-            return new User()
+            return new UserModel()
             {
                 UserName = user.UserName,
                 FirstName = user.FirstName,

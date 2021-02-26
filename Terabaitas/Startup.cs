@@ -4,7 +4,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Terabaitas.Core;
+using Terabaitas.Core.Domain;
+using Terabaitas.Core.Services;
+using Terabaitas.Core.Services.Abstract;
 using Terabaitas.Data;
+using Terabaitas.Data.Entities;
+using Terabaitas.Data.Repositories;
+using Terabaitas.Data.Repositories.Abstract;
 using Terabaitas.Models;
 
 namespace Terabaitas
@@ -21,6 +27,7 @@ namespace Terabaitas
             {
                 //options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=TerabaitasDB;Integrated Security=True");
                 options.UseInMemoryDatabase("_");
+                options.EnableSensitiveDataLogging();
             });
 
             services.AddIdentity<User, IdentityRole>(options =>
@@ -40,12 +47,15 @@ namespace Terabaitas
 
             services.AddSession();
 
-            services.AddTransient<IDbAccess<ShopItem>, ShopItemManager>();
-            services.AddTransient<IDbAccess<Order>, OrderManager>();
-            services.AddTransient<IAccountManager<User>, AccountManager>();
-            services.AddTransient<OrderHelper>();
-            services.AddTransient<RoleManager>();
-            services.AddTransient<Cart>();
+            services.AddTransient<IShopItemService, ShopItemService>();
+            services.AddTransient<ICartHelper, ShopItemService>();
+            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IOrderHelper, OrderService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IRoleService, RoleService>();
+
+            services.AddTransient<IEntityRepository<ShopItemEntity>, ShopItemRepository>();
+            services.AddTransient<IEntityRepository<OrderEntity>, OrderRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

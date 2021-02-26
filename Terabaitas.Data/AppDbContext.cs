@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Terabaitas.Models;
+using Terabaitas.Core.Domain;
+using Terabaitas.Data.Entities;
 
 namespace Terabaitas.Data
 {
     public class AppDbContext : IdentityDbContext<User>
     {
-        public DbSet<ShopItem> ShopItems { get; set; }
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<ShopItemEntity> ShopItems { get; set; }
+        public DbSet<OrderEntity> Orders { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

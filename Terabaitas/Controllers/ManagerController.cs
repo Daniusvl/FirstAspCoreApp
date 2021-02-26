@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Terabaitas.Core;
+using Terabaitas.Core.Services.Abstract;
+using Terabaitas.Mappers;
 using Terabaitas.Models;
 using Terabaitas.ViewModels;
 
@@ -10,30 +13,35 @@ namespace Terabaitas.Controllers
     [Authorize]//(Roles = "Manager")]
     public class ManagerController : Controller
     {
-        private IDbAccess<Order> order_manager;
-        private IDbAccess<ShopItem> shop_item_manager;
-        private OrderHelper order_helper;
-        private IAccountManager<User> acc_manager;
+        private readonly IOrderService orderService;
+        private readonly IOrderHelper orderHelper;
+        private readonly IShopItemService shopItemService;
+        private readonly IUserService userService;
 
-        public ManagerController(IDbAccess<Order> oManager, IDbAccess<ShopItem> sManager, OrderHelper oHelper, IAccountManager<User> aManager)
+        public ManagerController(IOrderService order_service, IOrderHelper order_helper, IShopItemService shop_item_service, IUserService user_service)
         {
-            order_manager = oManager;
-            shop_item_manager = sManager;
-            order_helper = oHelper;
-            acc_manager = aManager;
+            orderService = order_service;
+            orderHelper = order_helper;
+            shopItemService = shop_item_service;
+            userService = user_service;
         }
 
         public IActionResult Index()
         {
-            var orders = order_manager.GetAll();
-            return View((orders, order_helper));
+            var orders = new List<OrderModel>();
+            var domains = orderService.GetAll();
+            foreach (var item in domains)
+            {
+                orders.Add(item.ToModel());
+            }
+            return View((orders, orderHelper));
         }
 
         [HttpGet]
         public IActionResult Order(int order_id)
         {
-            var order = order_manager.Get(order_id);
-            return View((order, order_helper));
+            OrderModel order = orderService.Get(order_id).ToModel();
+            return View((order, orderHelper));
         }
 
         [HttpPost]
@@ -41,15 +49,15 @@ namespace Terabaitas.Controllers
         {
             if(btn == "atšaukti")
             {
-                order_manager.Remove(order_manager.Get(order_id));
+                orderService.Remove(orderService.Get(order_id));
                 return RedirectToAction("Index");
             }
             else if(btn == "pristatyti")
             {
-                if (order_helper.CanDeliver(order_id))
+                if (orderHelper.CanDeliver(order_id))
                 {
-                    order_helper.FixProductQuantities(order_id);
-                    order_manager.Remove(order_manager.Get(order_id));
+                    orderHelper.FixProductQuantities(order_id);
+                    orderService.Remove(orderService.Get(order_id));
                     return RedirectToAction("Index");
                 }
                 else
@@ -57,8 +65,8 @@ namespace Terabaitas.Controllers
                     ModelState.AddModelError("error", "Šiuo metu nėra tam tikrų prekių");
                 }
             }
-            var order = order_manager.Get(order_id);
-            return View((order, order_helper));
+            var order = orderService.Get(order_id).ToModel();
+            return View((order, orderHelper));
         }
 
         [HttpGet]
@@ -72,16 +80,17 @@ namespace Terabaitas.Controllers
         {
             if (ModelState.IsValid)
             {
-                ShopItem item = new ShopItem()
+                ShopItemModel item = new ShopItemModel()
                 {
                     Name = product.Name,
                     Description = product.Description,
                     Type = product.Type,
                     Price = product.Price,
-                    Quantity = product.Quantity
+                    Quantity = product.Quantity,
+                    DateCreated = DateTime.Now
                 };
 
-                shop_item_manager.Add(item);
+                shopItemService.Add(item.ToDomain());
 
                 return RedirectToAction("Index", "Manager");
             }
@@ -91,7 +100,7 @@ namespace Terabaitas.Controllers
         [HttpGet]
         public IActionResult EditProduct(int id)
         {
-            ShopItem item = shop_item_manager.Get(id);
+            ShopItemModel item = shopItemService.Get(id).ToModel();
 
             return View(item);
         }
@@ -99,7 +108,7 @@ namespace Terabaitas.Controllers
         [HttpPost]
         public IActionResult EditProduct(int id, ManagerProductViewModel product)
         {
-            ShopItem item = shop_item_manager.Get(id);
+            var item = shopItemService.Get(id);
 
             if (ModelState.IsValid)
             {
@@ -108,23 +117,23 @@ namespace Terabaitas.Controllers
                 item.Type = product.Type;
                 item.Price = product.Price;
                 item.Quantity = product.Quantity;
-                
 
-                shop_item_manager.Edit(item);
+
+                shopItemService.Edit(item);
 
                 return RedirectToAction("Product", "Home", new { id = item.Id });
             }
-            return View(item);
+            return View(item.ToModel());
         }
 
         public IActionResult RemoveProduct(int id)
         {
-            ShopItem item = shop_item_manager.Get(id);
+            ShopItemModel item = shopItemService.Get(id).ToModel();
 
             if (item is null)
                 return RedirectToAction("Product", "Home", new { id = id });
 
-            shop_item_manager.Remove(item);
+            shopItemService.Remove(item.ToDomain());
 
             return RedirectToAction("Index", "Home");
         }
@@ -149,12 +158,12 @@ namespace Terabaitas.Controllers
                 return View();
             }
 
-            bool res = await acc_manager.CreateUser(manager, manager.Password, "Manager", ModelState);
+            bool res = await userService.CreateUser(((UserModel)manager).ToDomain(), manager.Password, "Manager", ModelState);
 
             if(!res)
                 return View();
             
-            res = await acc_manager.Login(manager.UserName, manager.Password);
+            res = await userService.Login(manager.UserName, manager.Password);
 
             if(!res)
                 return View();

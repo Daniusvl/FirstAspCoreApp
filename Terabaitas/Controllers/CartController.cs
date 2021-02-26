@@ -2,9 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Terabaitas.Core;
+using Terabaitas.Core.Domain;
+using Terabaitas.Core.Services.Abstract;
+using Terabaitas.Mappers;
 using Terabaitas.Models;
 
 namespace Terabaitas.Controllers
@@ -12,68 +13,69 @@ namespace Terabaitas.Controllers
     [Authorize]
     public class CartController : Controller
     {
-        private IAccountManager<User> acc_manager;
-        private Cart cart;
-        private IDbAccess<Order> order_manager;
-        private IDbAccess<ShopItem> shop_manager;
+        private readonly IUserService userService;
+        private readonly IOrderService orderService;
+        private readonly IShopItemService shopItemService;
+        private readonly ICartHelper cartHelper;
 
-        public CartController(IAccountManager<User> aManager, Cart c, IDbAccess<Order> oManager, IDbAccess<ShopItem> sManager)
+        public CartController(IUserService user_service, IOrderService order_service, IShopItemService shop_item_service, ICartHelper cart_helper)
         {
-            acc_manager = aManager;
-            cart = c;
-            order_manager = oManager;
-            shop_manager = sManager;
+            userService = user_service;
+            orderService = order_service;
+            shopItemService = shop_item_service;
+            cartHelper = cart_helper;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            var _cart = cart.GetCart(HttpContext.Session);
-            return View(_cart);
+            var _cart = cartHelper.GetCart(HttpContext.Session);
+            return View(_cart.ToModel());
         }
 
         [HttpPost]
         public async Task<IActionResult> Index(string add_remove, int? id)
         {
-            var _cart = cart.GetCart(HttpContext.Session);
+            var _cart = cartHelper.GetCart(HttpContext.Session);
 
             if (add_remove != null && id != null)
             {
                 if (add_remove == "+")
                 {
                     CartAddProductQuantity((int)id);
-                    _cart = cart.GetCart(HttpContext.Session);
-                    return View(_cart);
+                    _cart = cartHelper.GetCart(HttpContext.Session);
+                    return View(_cart.ToModel());
                 }
                 else if (add_remove == "-")
                 {
                     CartRemoveProductQuantity((int)id);
-                    _cart = cart.GetCart(HttpContext.Session);
-                    return View(_cart);
+                    _cart = cartHelper.GetCart(HttpContext.Session);
+                    return View(_cart.ToModel());
                 }
 
             }
 
-            User user = await acc_manager.GetCurrentUser(User);
+            UserModel user = (await userService.GetCurrentUser(User)).ToModel();
 
             if (user is null)
-                return View(_cart);
+                return View(_cart.ToModel());
 
             string user_id = user.Id;
 
             if (user_id is null || user_id == string.Empty)
-                return View(_cart);
+                return View(_cart.ToModel());
 
-            Order order = new Order()
+            OrderModel order = new OrderModel()
             {
                 UsersId = user_id,
-                OrderedProducts = cart.GetCartStr(HttpContext.Session),
+                OrderedProducts = cartHelper.GetCartStr(HttpContext.Session),
+                DateCreated = DateTime.Now
             };
 
             return Payment(order);
         }
 
-        public IActionResult Payment(Order order)
+        public IActionResult Payment(OrderModel order)
         {
             if (order is null)
                 return RedirectToAction("Index", "Home");
@@ -81,8 +83,8 @@ namespace Terabaitas.Controllers
             // payment logic...
 
             // if payment successful
-            order_manager.Add(order);
-            cart.SetCart(HttpContext.Session, new List<(ShopItem, int)>());
+            orderService.Add(order.ToDomain());
+            cartHelper.SetCart(HttpContext.Session, new List<(ShopItem, int)>());
 
             return RedirectToAction("Index", "Home");
         }
@@ -93,12 +95,12 @@ namespace Terabaitas.Controllers
             if (id < 0)
                 return false;
 
-            var item =  shop_manager.Get(id);
+            var item = shopItemService.Get(id);
 
             if (item is null)
                 return false;
 
-            cart.RemoveFromCart(HttpContext.Session, item);
+            cartHelper.RemoveFromCart(HttpContext.Session, item);
 
             return true;
         }
@@ -109,12 +111,12 @@ namespace Terabaitas.Controllers
             if (id < 0)
                 return false;
 
-            var item = shop_manager.Get(id);
+            var item = shopItemService.Get(id);
 
             if (item is null)
                 return false;
 
-            cart.AddToCart(HttpContext.Session, item);
+            cartHelper.AddToCart(HttpContext.Session, item);
 
             return true;
         }
