@@ -1,9 +1,0 @@
-C:\Users\User\source\repos\Shop\Terabaitas.Models\bin\Debug\netstandard2.1\Terabaitas.UI.Models.deps.json
-C:\Users\User\source\repos\Shop\Terabaitas.Models\bin\Debug\netstandard2.1\Terabaitas.UI.Models.dll
-C:\Users\User\source\repos\Shop\Terabaitas.Models\bin\Debug\netstandard2.1\Terabaitas.UI.Models.pdb
-C:\Users\User\source\repos\Shop\Terabaitas.Models\obj\Debug\netstandard2.1\Terabaitas.UI.Models.csprojAssemblyReference.cache
-C:\Users\User\source\repos\Shop\Terabaitas.Models\obj\Debug\netstandard2.1\Terabaitas.UI.Models.AssemblyInfoInputs.cache
-C:\Users\User\source\repos\Shop\Terabaitas.Models\obj\Debug\netstandard2.1\Terabaitas.UI.Models.AssemblyInfo.cs
-C:\Users\User\source\repos\Shop\Terabaitas.Models\obj\Debug\netstandard2.1\Terabaitas.UI.Models.csproj.CoreCompileInputs.cache
-C:\Users\User\source\repos\Shop\Terabaitas.Models\obj\Debug\netstandard2.1\Terabaitas.UI.Models.dll
-C:\Users\User\source\repos\Shop\Terabaitas.Models\obj\Debug\netstandard2.1\Terabaitas.UI.Models.pdb

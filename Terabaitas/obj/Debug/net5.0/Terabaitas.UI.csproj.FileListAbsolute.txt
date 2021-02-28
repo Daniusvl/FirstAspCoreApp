@@ -37,7 +37,6 @@ C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\runtimes\win-x86\nat
 C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\Terabaitas.Data.dll
-C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\Terabaitas.UI.Models.dll
 C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\Terabaitas.Data.pdb
 C:\Users\User\source\repos\Shop\Terabaitas\obj\Debug\net5.0\Terabaitas.UI.csprojAssemblyReference.cache
 C:\Users\User\source\repos\Shop\Terabaitas\obj\Debug\net5.0\Terabaitas.UI.GeneratedMSBuildEditorConfig.editorconfig
@@ -85,13 +84,10 @@ C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\ref\Terabaitas.UI.dl
 C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\Terabaitas.UI.pdb
 C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\Terabaitas.UI.Views.dll
 C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\Terabaitas.UI.Views.pdb
-C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\Mappers.dll
 C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\Terabaitas.Core.Domain.dll
 C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\Terabaitas.Core.Services.dll
-C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\Mappers.pdb
 C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\Terabaitas.Core.Domain.pdb
 C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\Terabaitas.Core.Services.pdb
-C:\Users\User\source\repos\Shop\Terabaitas\bin\Debug\net5.0\Terabaitas.UI.Models.pdb
 C:\Users\User\source\repos\Shop\Terabaitas\obj\Debug\net5.0\Terabaitas.UI.Views.pdb
 C:\Users\User\source\repos\Shop\Terabaitas\obj\Debug\net5.0\Terabaitas.UI.csproj.CopyComplete
 C:\Users\User\source\repos\Shop\Terabaitas\obj\Debug\net5.0\Terabaitas.UI.genruntimeconfig.cache

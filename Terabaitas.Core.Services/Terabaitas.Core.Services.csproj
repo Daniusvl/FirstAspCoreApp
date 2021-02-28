@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mappers\Mappers.csproj" />
     <ProjectReference Include="..\Terabaitas.Core.Domain\Terabaitas.Core.Domain.csproj" />
     <ProjectReference Include="..\Terabaitas.Data\Terabaitas.Data.csproj" />
   </ItemGroup>

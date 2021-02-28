@@ -1805,21 +1805,6 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Mappers/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "dependencies": {
-          "Terabaitas.Core.Domain": "1.0.0",
-          "Terabaitas.Data": "1.0.0",
-          "Terabaitas.UI.Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Mappers.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Mappers.dll": {}
-        }
-      },
       "Terabaitas.Core.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -1838,7 +1823,6 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "Mappers": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
           "Newtonsoft.Json": "12.0.3",
           "Terabaitas.Core.Domain": "1.0.0",
@@ -1865,20 +1849,6 @@
         },
         "runtime": {
           "bin/placeholder/Terabaitas.Data.dll": {}
-        }
-      },
-      "Terabaitas.UI.Models/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.1",
-        "dependencies": {
-          "Microsoft.AspNetCore.Identity": "2.2.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.3"
-        },
-        "compile": {
-          "bin/placeholder/Terabaitas.UI.Models.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Terabaitas.UI.Models.dll": {}
         }
       }
     }
@@ -6329,11 +6299,6 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "Mappers/1.0.0": {
-      "type": "project",
-      "path": "../Mappers/Mappers.csproj",
-      "msbuildProject": "../Mappers/Mappers.csproj"
-    },
     "Terabaitas.Core.Domain/1.0.0": {
       "type": "project",
       "path": "../Terabaitas.Core.Domain/Terabaitas.Core.Domain.csproj",
@@ -6348,24 +6313,17 @@
       "type": "project",
       "path": "../Terabaitas.Data/Terabaitas.Data.csproj",
       "msbuildProject": "../Terabaitas.Data/Terabaitas.Data.csproj"
-    },
-    "Terabaitas.UI.Models/1.0.0": {
-      "type": "project",
-      "path": "../Terabaitas.Models/Terabaitas.UI.Models.csproj",
-      "msbuildProject": "../Terabaitas.Models/Terabaitas.UI.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Mappers >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.3",
       "Microsoft.EntityFrameworkCore.InMemory >= 5.0.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.3",
       "Terabaitas.Core.Domain >= 1.0.0",
       "Terabaitas.Core.Services >= 1.0.0",
-      "Terabaitas.Data >= 1.0.0",
-      "Terabaitas.UI.Models >= 1.0.0"
+      "Terabaitas.Data >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -6400,9 +6358,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\User\\source\\repos\\Shop\\Mappers\\Mappers.csproj": {
-              "projectPath": "C:\\Users\\User\\source\\repos\\Shop\\Mappers\\Mappers.csproj"
-            },
             "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Core.Domain\\Terabaitas.Core.Domain.csproj": {
               "projectPath": "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Core.Domain\\Terabaitas.Core.Domain.csproj"
             },
@@ -6411,9 +6366,6 @@
             },
             "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Data\\Terabaitas.Data.csproj": {
               "projectPath": "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Data\\Terabaitas.Data.csproj"
-            },
-            "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Models\\Terabaitas.UI.Models.csproj": {
-              "projectPath": "C:\\Users\\User\\source\\repos\\Shop\\Terabaitas.Models\\Terabaitas.UI.Models.csproj"
             }
           }
         }

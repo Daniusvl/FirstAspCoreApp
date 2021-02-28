@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Terabaitas.Core.Domain;
 using Terabaitas.Core.Services.Abstract;
-using Terabaitas.Mappers;
 using Terabaitas.Models;
+using Terabaitas.UI.Mappers;
 
 namespace Terabaitas.Controllers
 {

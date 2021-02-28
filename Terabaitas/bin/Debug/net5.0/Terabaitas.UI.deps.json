@@ -25,7 +25,6 @@
     ".NETCoreApp,Version=v5.0": {
       "Terabaitas.UI/1.0.0": {
         "dependencies": {
-          "Mappers": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.3",
           "Microsoft.EntityFrameworkCore.Design": "5.0.3",
           "Microsoft.EntityFrameworkCore.InMemory": "5.0.3",
@@ -33,7 +32,6 @@
           "Terabaitas.Core.Domain": "1.0.0",
           "Terabaitas.Core.Services": "1.0.0",
           "Terabaitas.Data": "1.0.0",
-          "Terabaitas.UI.Models": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies.Reference": "5.0.0.0",
@@ -1462,19 +1460,6 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
-      "Mappers/1.0.0": {
-        "dependencies": {
-          "Terabaitas.Core.Domain": "1.0.0",
-          "Terabaitas.Data": "1.0.0",
-          "Terabaitas.UI.Models": "1.0.0"
-        },
-        "runtime": {
-          "Mappers.dll": {}
-        },
-        "compile": {
-          "Mappers.dll": {}
-        }
-      },
       "Terabaitas.Core.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity": "2.2.0",
@@ -1489,7 +1474,6 @@
       },
       "Terabaitas.Core.Services/1.0.0": {
         "dependencies": {
-          "Mappers": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
           "Newtonsoft.Json": "12.0.3",
           "Terabaitas.Core.Domain": "1.0.0",
@@ -1514,18 +1498,6 @@
         },
         "compile": {
           "Terabaitas.Data.dll": {}
-        }
-      },
-      "Terabaitas.UI.Models/1.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Identity": "2.2.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.3"
-        },
-        "runtime": {
-          "Terabaitas.UI.Models.dll": {}
-        },
-        "compile": {
-          "Terabaitas.UI.Models.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -4059,11 +4031,6 @@
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
-    "Mappers/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Terabaitas.Core.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -4075,11 +4042,6 @@
       "sha512": ""
     },
     "Terabaitas.Data/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Terabaitas.UI.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -9,7 +9,6 @@
     ".NETStandard,Version=v2.1/": {
       "Terabaitas.Core.Services/1.0.0": {
         "dependencies": {
-          "Mappers": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
           "Newtonsoft.Json": "12.0.3",
           "Terabaitas.Core.Domain": "1.0.0",
@@ -1843,16 +1842,6 @@
           }
         }
       },
-      "Mappers/1.0.0": {
-        "dependencies": {
-          "Terabaitas.Core.Domain": "1.0.0",
-          "Terabaitas.Data": "1.0.0",
-          "Terabaitas.UI.Models": "1.0.0"
-        },
-        "runtime": {
-          "Mappers.dll": {}
-        }
-      },
       "Terabaitas.Core.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity": "2.2.0",
@@ -1871,15 +1860,6 @@
         },
         "runtime": {
           "Terabaitas.Data.dll": {}
-        }
-      },
-      "Terabaitas.UI.Models/1.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Identity": "2.2.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.3"
-        },
-        "runtime": {
-          "Terabaitas.UI.Models.dll": {}
         }
       }
     }
@@ -2968,22 +2948,12 @@
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
-    "Mappers/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Terabaitas.Core.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
     "Terabaitas.Data/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Terabaitas.UI.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

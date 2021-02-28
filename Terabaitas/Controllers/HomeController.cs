@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Terabaitas.Core.Services.Abstract;
-using Terabaitas.Mappers;
 using Terabaitas.Models;
+using Terabaitas.UI.Mappers;
 
 namespace Terabaitas.Controllers
 {

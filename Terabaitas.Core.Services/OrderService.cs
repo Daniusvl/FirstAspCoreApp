@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Terabaitas.Core.Domain;
 using Terabaitas.Core.Services.Abstract;
+using Terabaitas.Core.Services.Mappers;
 using Terabaitas.Data.Entities;
 using Terabaitas.Data.Repositories.Abstract;
-using Terabaitas.Mappers;
 
 namespace Terabaitas.Core.Services
 {

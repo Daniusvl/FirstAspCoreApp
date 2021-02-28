@@ -15,11 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mappers\Mappers.csproj" />
     <ProjectReference Include="..\Terabaitas.Core.Domain\Terabaitas.Core.Domain.csproj" />
     <ProjectReference Include="..\Terabaitas.Core.Services\Terabaitas.Core.Services.csproj" />
     <ProjectReference Include="..\Terabaitas.Data\Terabaitas.Data.csproj" />
-    <ProjectReference Include="..\Terabaitas.Models\Terabaitas.UI.Models.csproj" />
   </ItemGroup>
 
 </Project>

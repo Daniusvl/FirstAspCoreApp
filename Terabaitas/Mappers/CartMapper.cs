@@ -2,7 +2,7 @@
 using Terabaitas.Core.Domain;
 using Terabaitas.Models;
 
-namespace Terabaitas.Mappers
+namespace Terabaitas.UI.Mappers
 {
     public static class CartMapper
     {
